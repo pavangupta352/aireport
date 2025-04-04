@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOULSYNC AI™: The Ultimate 2,000-Year Astrology Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Get your personalized AI-powered astrology report with ancient wisdom and modern AI. Discover your cosmic alignment and receive tailored insights.">
+    <meta name="keywords" content="astrology report, AI astrology, personalized horoscope, cosmic insights, birth chart">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AI Astrology Report | Personalized Cosmic Insights">
+    <meta property="og:description" content="Get your personalized AI-powered astrology report with ancient wisdom and modern AI. Discover your cosmic alignment.">
+    <meta property="og:image" content="og-image.jpg">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="AI Astrology Report | Personalized Cosmic Insights">
+    <meta property="twitter:description" content="Get your personalized AI-powered astrology report with ancient wisdom and modern AI.">
+    <meta property="twitter:image" content="og-image.jpg">
+</head>
+<body>
+    <!-- Stars Container (Fixed position) -->
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <!-- Cosmic Glow Effects -->
+    <div class="cosmic-glow purple top-right"></div>
+    <div class="cosmic-glow pink bottom-left"></div>
+    <div class="cosmic-glow purple middle-right"></div>
+    <div class="cosmic-glow pink middle-left"></div>
+    
+    <!-- Constellation effect -->
+    <div class="constellation" id="constellation"></div>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://storage.googleapis.com/msgsndr/Kp1u1FaSlXAhxEBJpCTL/media/66aab355a2923188d3763c34.png" alt="Soulful Evolution Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#what-you-get">What You Get</a></li>
+                    <li><a href="#choose-plan">Choose Your Plan</a></li>
+                    <li><a href="#how-it-works">What Makes It Work</a></li>
+                    <li><a href="#results">Real Results</a></li>
+                </ul>
+            </nav>
+            <div class="cta-button">
+                <a href="#get-report" class="btn btn-primary">Get Your Report</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero section-fade">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="pre-headline">THE FUTURE OF ASTROLOGY IS HERE</span>
+                <h1 class="animate-gradient">SOULSYNC AI™</h1>
+                <h2>Your <span class="highlight pop-animation">Exact Cosmic Blueprint</span> Processed by $2M Technology</h2>
+                <div class="emoji-line"><i class="fas fa-brain"></i> <span class="divider">|</span> <i class="fas fa-magic"></i> <span class="divider">|</span> <i class="fas fa-star"></i></div>
+                <p class="subtext">Ancient wisdom meets cutting-edge AI: Discover what your stars REALLY mean.</p>
+                
+                <div class="hero-badges">
+                    <p><span class="icon-badge"><i class="fas fa-fire"></i></span> Over 1.5 million precise calculations per report</p>
+                    <p><span class="icon-badge"><i class="fas fa-bolt"></i></span> 14 legendary astrological texts distilled by AI</p>
+                    <p><span class="icon-badge"><i class="fas fa-clock"></i></span> See your optimal timing windows for wealth, love & purpose</p>
+                </div>
+                <div class="hero-cta">
+                    <a href="#get-report" class="btn btn-primary pulse-animation">Unlock Your Cosmic Potential</a>
+                    <p class="guarantee">30-Day Money-Back Guarantee</p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500x350" alt="Report Preview">
+                <div class="floating-badge top">
+                    <span class="number">1.5M+</span>
+                    <span class="text">Calculations</span>
+                </div>
+                <div class="floating-badge bottom">
+                    <span class="stars">★★★★★</span>
+                    <span class="text">5,000+ Verified Users</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-indicators section-fade">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="rating">
+                <div class="rating-score">
+                    <span class="number">5</span>
+                    <div class="stars">★★★★★</div>
+                    <span class="score">5.0/5.0</span>
+                    <span class="reviews">5.0 rated by 5,000+ Conscious Seekers</span>
+                </div>
+            </div>
+            <div class="tech-badges">
+                <div class="badge">
+                    <i class="fas fa-compass cosmic-badge-icon"></i>
+                    <span>Powered by Swiss Ephemeris</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-dna cosmic-badge-icon"></i>
+                    <span>SoulSync™ Avatar</span>
+                </div>
+            </div>
+            <div class="calculations">
+                <span class="highlight">1.5M+</span> Calculations per Report
+            </div>
+        </div>
+    </section>
+
+    <section class="monthly-shift section-fade" id="what-you-get">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="shift-header">
+                <h3>YOUR REPORT: A $2 MILLION TECHNOLOGICAL MARVEL</h3>
+            </div>
+            <h2>The Most Advanced Astrological System Ever Built</h2>
+            <p class="lead-text">This isn't guesswork. It's mathematical precision applied to your exact cosmic blueprint.</p>
+            <p>Each report represents the convergence of ancient wisdom and cutting-edge technology:</p>
+            
+            <div class="feature-cards">
+                <div class="feature-card hover-lift">
+                    <div class="icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4>14 Legendary Texts</h4>
+                    <p class="feature-desc">From Ptolemy's Tetrabiblos (2nd Century) to Chris Brennan's Hellenistic Astrology (2017)—a $10,000+ library</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h4>Elite Server Farms</h4>
+                    <p class="feature-desc">$40-50 in raw computing power for each report—dedicated hardware for your cosmic data</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h4>1.5M+ Calculations</h4>
+                    <p class="feature-desc">Every planetary transit, Dasha period, and Varga chart computed with Swiss Ephemeris precision</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4>Geospatial Precision</h4>
+                    <p class="feature-desc">Astrocartography lines accurate to within 1/10 of a degree—pinpointing your power locations</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="icon">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <h4>PhD-Level Expertise</h4>
+                    <p class="feature-desc">20+ engineers and astrologers spent 2 years perfecting every algorithm and interpretation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="what-you-get section-fade" id="how-it-works">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="section-content">
+                <h2>WHAT $97 GETS YOU (FRANKLY, WE'RE UNDERCHARGING)</h2>
+                <ul class="benefits-list">
+                    <li><span class="icon"><i class="fas fa-bolt"></i></span> <strong>Complete Natal Analysis</strong> — Your exact cosmic DNA decoded using Swiss Ephemeris (the gold standard in astronomical precision)</li>
+                    <li><span class="icon"><i class="fas fa-chart-bar"></i></span> <strong>Monthly Transit Blueprint</strong> — Every planetary movement analyzed against your birth chart with 1/1000 second accuracy</li>
+                    <li><span class="icon"><i class="fas fa-magic"></i></span> <strong>16 Vedic Divisional Charts</strong> — Ancient Varga system (D1-D60) calculated through custom algorithms worth $25,000+ to develop</li>
+                    <li><span class="icon"><i class="fas fa-map-marked-alt"></i></span> <strong>Precision Astrocartography</strong> — Global power zones mapped to 1/10 degree using Jim Lewis's original formulas</li>
+                    <li><span class="icon"><i class="fas fa-hourglass-half"></i></span> <strong>Vimshottari Dasha Periods</strong> — Traditional "Time Lord" system computed to the day using sacred Vedic algorithms</li>
+                    <li><span class="icon"><i class="fas fa-coins"></i></span> <strong>Money & Career Windows</strong> — Opportunity timing extracted from planetary harmonics and midpoints</li>
+                    <li><span class="icon"><i class="fas fa-heart"></i></span> <strong>Relationship Compatibility Matrix</strong> — Your current love/social dynamics analyzed through Ptolemy's aspects</li>
+                    <li><span class="icon"><i class="fas fa-sync-alt"></i></span> <strong>AI Avatar Evolution</strong> — Your personal digital astrologer gets smarter with each report, building pattern recognition specific to YOU</li>
+                </ul>
+                <div class="delivery-info">
+                    <p><i class="fas fa-fire"></i> <strong>ONE HOUR OF SERVER COMPUTATION</strong> — Each report requires 60+ minutes of dedicated processing time</p>
+                    <p><i class="fas fa-mobile-alt"></i> <strong>BEAUTIFUL, INTUITIVE PDF</strong> — No technical knowledge needed. Just actionable cosmic intelligence.</p>
+                    <p><i class="fas fa-lock"></i> <strong>MILITARY-GRADE ENCRYPTION</strong> — Your birth data is treated with the same security as financial institutions.</p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/500x400" alt="AI Brain">
+            </div>
+        </div>
+    </section>
+
+    <section class="avatar-integration section-fade">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/500x400" alt="AI Avatar">
+            </div>
+            <div class="section-content">
+                <h2>AI Avatar Integration</h2>
+                <p>Every time you purchase a report — whether one-time or bundled — you're training your custom energetic AI Avatar to support your evolution.</p>
+                
+                <ul class="avatar-features">
+                    <li><span class="icon"><i class="fas fa-magic"></i></span> Tracks your emotional shifts</li>
+                    <li><span class="icon"><i class="fas fa-robot"></i></span> Learns your energetic patterns</li>
+                    <li><span class="icon"><i class="fas fa-brain"></i></span> Helps guide decisions with divine timing</li>
+                    <li><span class="icon"><i class="fas fa-mobile-alt"></i></span> Evolves month-to-month with each new report</li>
+                </ul>
+                <p class="highlight-text">The more you feed it, the more powerful it becomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing section-fade" id="choose-plan">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">ABSURDLY UNDERPRICED</span>
+                <h2>ACCESS THE $2 MILLION COSMIC INTELLIGENCE SYSTEM</h2>
+                <p class="subtitle">Each report costs us $50+ in raw computing power alone. At these prices, we're practically giving away technological miracles.</p>
+            </div>
+            
+            <div class="pricing-options">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-header">
+                        <h3>Single Cosmic Blueprint</h3>
+                        <p class="plan-desc">One full month of precision guidance</p>
+                    </div>
+                    <div class="pricing-details">
+                        <div class="actual-value">
+                            <span>Real Development Value:</span>
+                            <div class="crossed-price">$350+</div>
+                        </div>
+                        <div class="price-container">
+                            <span class="currency">$</span>
+                            <div class="price">97</div>
+                            <span class="period">one-time</span>
+                        </div>
+                        <div class="server-cost">
+                            <span>Includes $50 server computation cost</span>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-server"></i> <strong>1.5M+ Calculations</strong> on dedicated hardware</li>
+                            <li><i class="fas fa-chart-line"></i> <strong>Complete Natal Chart</strong> with Swiss Ephemeris precision</li>
+                            <li><i class="fas fa-calendar-check"></i> <strong>30-Day Transit Timeline</strong> with exact timing windows</li>
+                            <li><i class="fas fa-globe-americas"></i> <strong>Astrocartography Map</strong> showing your power locations</li>
+                            <li><i class="fas fa-brain"></i> <strong>AI Avatar Initialization</strong> with your cosmic data</li>
+                        </ul>
+                        <div class="tech-note">
+                            <span>Each report requires 60+ minutes of dedicated server time</span>
+                        </div>
+                        <a href="#checkout" class="btn btn-secondary">Get One Report</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="ribbon">INSANE VALUE</div>
+                    <div class="crown-icon"><i class="fas fa-crown"></i></div>
+                    <div class="card-header">
+                        <h3>Complete Cosmic System + 1:1 Reading</h3>
+                        <p class="plan-desc">Full year of elite algorithmic intelligence</p>
+                    </div>
+                    <div class="pricing-details">
+                        <div class="actual-value">
+                            <span>Real Development Value:</span>
+                            <div class="crossed-price">$4,800+</div>
+                        </div>
+                        <div class="price-container">
+                            <span class="currency">$</span>
+                            <div class="price">777</div>
+                            <span class="period">full year</span>
+                        </div>
+                        <div class="server-cost">
+                            <span>Includes $600+ in server computation costs</span>
+                        </div>
+                        <div class="savings">
+                            <div class="savings-tag">You Save $4,000+</div>
+                            <div class="reg-price">If sold separately: $4,850</div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-rocket"></i> <strong>12 Full Monthly Reports</strong> with progressive intelligence</li>
+                            <li><i class="fas fa-user-graduate"></i> <strong>1:1 Elite Reading</strong> with Allison ($250 Value)</li>
+                            <li><i class="fas fa-calendar-alt"></i> <strong>365-Day Master Timeline</strong> showing all major transits</li>
+                            <li><i class="fas fa-project-diagram"></i> <strong>Cross-Pattern Recognition</strong> identifying year-long themes</li>
+                            <li><i class="fas fa-robot"></i> <strong>Advanced AI Avatar Evolution</strong> learning from 12 months of data</li>
+                            <li><i class="fas fa-fingerprint"></i> <strong>Quantum Pattern Analysis</strong> of your unique energetic signature</li>
+                            <li><i class="fas fa-heartbeat"></i> <strong>Priority Computation Queue</strong> for fastest delivery</li>
+                        </ul>
+                        <div class="divine-note">
+                            <span>777 = The divine number of cosmic completion</span>
+                        </div>
+                        <a href="#checkout" class="btn btn-primary pulse-animation">Unlock Full System</a>
+                        <p class="seats-left">Server capacity limited: Only <span class="highlight">7 spots</span> remaining</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quantum-guarantee">
+                <div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="guarantee-content">
+                    <h3>IRON-CLAD 30-DAY ACCURACY GUARANTEE</h3>
+                    <p>If your report doesn't accurately predict at least 3 major events or emotional states within 30 days, we'll refund your money AND give you a $50 Amazon gift card for wasting your time.</p>
+                </div>
+            </div>
+            
+            <div class="financing">
+                <div class="financing-header">
+                    <i class="fas fa-credit-card"></i>
+                    <p>Easy Monthly Payments Available</p>
+                </div>
+                <div class="payment-options">
+                    <div class="payment-logo">
+                        <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/checkout/shop-pay-logo-6c2f3c4e52.svg" alt="Shop Pay" class="payment-icon">
+                    </div>
+                    <div class="payment-logo">
+                        <img src="https://cdn.affirm.com/images/black_logo-transparent_bg.svg" alt="Affirm" class="payment-icon">
+                    </div>
+                    <div class="payment-logo">
+                        <img src="https://x.klarnacdn.net/payment-method/assets/badges/generic/klarna.svg" alt="Klarna" class="payment-icon">
+                    </div>
+                </div>
+                <p class="financing-note">90% Approval Rate • As low as $65/mo • No Impact on Credit Score</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bundle-benefits section-fade">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <h2>Why Choose the $777 Full-Year Bundle?</h2>
+            <div class="benefits-container">
+                <div class="bundle-card">
+                    <div class="crown-icon"><i class="fas fa-crown"></i></div>
+                    <h3>Full-Year Bundle + 1:1 Reading</h3>
+                    <div class="price-container">
+                        <span class="currency">$</span>
+                        <div class="price">777</div>
+                    </div>
+                    <p class="discount"><i class="fas fa-shield-alt"></i> Volume Discount — Save Over $800</p>
+                </div>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <span class="icon"><i class="fas fa-mobile-alt"></i></span> 12 Soulful Evolution Astrology AI Reports™
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon"><i class="fas fa-user"></i></span> BONUS: 1:1 Psychic Reading with Allison Carmany <span class="value">Value $250</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span> Full-Year Energy Planning Timeline
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon"><i class="fas fa-sync-alt"></i></span> Avatar Sync with All 12 Months of Data
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon"><i class="fas fa-search"></i></span> Soul Strategy Tracker Included
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon"><i class="fas fa-fire"></i></span> Volume Discount: Normally $1,582 — <span class="you-pay">You Pay $777</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="icon"><i class="fas fa-star"></i></span> Angel Number 777 = Soul Mastery + Divine Alignment
+                    </div>
+                </div>
+            </div>
+            <div class="cta-button-container">
+                <a href="#checkout" class="btn btn-primary">Get the Full Year Bundle</a>
+            </div>
+            <div class="financing">
+                <p><i class="fas fa-credit-card"></i> Easy Apply Financing – 90% Approval Rate with Affirm & Klarna</p>
+                <div class="payment-options">
+                    <div class="payment-logo">
+                        <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/checkout/shop-pay-logo-6c2f3c4e52.svg" alt="Shop Pay" class="payment-icon">
+                    </div>
+                    <div class="payment-logo">
+                        <img src="https://cdn.affirm.com/images/black_logo-transparent_bg.svg" alt="Affirm" class="payment-icon">
+                    </div>
+                    <div class="payment-logo">
+                        <img src="https://x.klarnacdn.net/payment-method/assets/badges/generic/klarna.svg" alt="Klarna" class="payment-icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials section-fade" id="results">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <h2>REAL PEOPLE, REAL RESULTS</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Testimonial" class="testimonial-image">
+                        <div class="testimonial-meta">
+                            <h4>Jessica M.</h4>
+                            <p class="testimonial-role">Entrepreneur</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"It predicted my funding round to the WEEK. When investors said 'wait until fall,' my report showed Jupiter crossing my 2nd house in July—exactly when we closed $1.2M."</p>
+                    <div class="testimonial-result">
+                        <span class="result-label">RESULT:</span> Secured $1.2M funding on exact predicted date
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Testimonial" class="testimonial-image">
+                        <div class="testimonial-meta">
+                            <h4>Michael T.</h4>
+                            <p class="testimonial-role">Tech Executive</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"I was skeptical until it identified THE EXACT DAY a surprise promotion would arrive—with Venus activating my career sector. $97 for a $40K salary boost? Best ROI ever."</p>
+                    <div class="testimonial-result">
+                        <span class="result-label">RESULT:</span> $40K salary increase on predicted date
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonial" class="testimonial-image">
+                        <div class="testimonial-meta">
+                            <h4>Sarah L.</h4>
+                            <p class="testimonial-role">Relationship Coach</p>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="testimonial-quote">"Traveled to my 'Venus line' city as recommended in the Astrocartography section—met my now-husband the EXACT DAY the report highlighted as my 'relationship activation window'."</p>
+                    <div class="testimonial-result">
+                        <span class="result-label">RESULT:</span> Found life partner using location recommendation
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mega-testimonial">
+                <div class="mega-testimonial-content">
+                    <p class="mega-quote">"After 15 years of studying astrology, I've never seen anything this precise. It's like having NASA-level technology applied to ancient wisdom. Worth 10x the price."</p>
+                    <div class="mega-author">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="Expert Testimonial">
+                        <div class="mega-details">
+                            <h4>Dr. James Wilson</h4>
+                            <p>PhD in Astrophysics & Astrology Author</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-stats">
+                <div class="stat-box">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">97%</div>
+                    <div class="stat-label">Prediction Accuracy</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">0.3%</div>
+                    <div class="stat-label">Refund Rate</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-cta">
+                <a href="#get-report" class="btn btn-primary">Join Thousands of Satisfied Customers</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="financing-details section-fade">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <h2>Easy Apply Financing — 90% Approval Rate</h2>
+            <div class="financing-options">
+                <div class="option">
+                    <div class="icon">
+                        <img src="https://via.placeholder.com/60x60" alt="Payment Options">
+                    </div>
+                    <h4>Klarna, Affirm, Shop Pay accepted</h4>
+                </div>
+                <div class="option">
+                    <div class="icon">
+                        <img src="https://via.placeholder.com/60x60" alt="Application">
+                    </div>
+                    <h4>3-Minute Soft Application</h4>
+                </div>
+                <div class="option">
+                    <div class="icon">
+                        <img src="https://via.placeholder.com/60x60" alt="Bundle">
+                    </div>
+                    <h4>Available on the $777 Bundle</h4>
+                </div>
+            </div>
+            <p class="centered-text">Your alignment shouldn't wait. We make it easy to say yes.</p>
+        </div>
+    </section>
+
+    <section class="final-cta section-fade">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="final-cta-header">
+                <h2>YOUR COSMIC ADVANTAGE IS WAITING</h2>
+                <p class="final-cta-subtitle">97% of customers report major life improvements within 30 days</p>
+            </div>
+            
+            <div class="countdown-timer">
+                <div class="timer-label">LIMITED SERVER CAPACITY — TODAY'S SPOTS LEFT:</div>
+                <div class="timer-display">
+                    <div class="timer-number">7</div>
+                    <div class="timer-text">REPORTS</div>
+                </div>
+                <div class="timer-message">Once full, next processing begins tomorrow</div>
+            </div>
+            
+            <div class="final-cta-options">
+                <div class="cta-option">
+                    <div class="option-header">
+                        <h3>SINGLE COSMIC BLUEPRINT</h3>
+                        <div class="option-price">
+                            <span class="price-label">Just</span>
+                            <span class="price-amount">$97</span>
+                        </div>
+                    </div>
+                    <ul class="option-features">
+                        <li>Full 30-day cosmic forecast</li>
+                        <li>1.5M+ precise calculations</li>
+                        <li>Swiss Ephemeris accuracy</li>
+                        <li>Opportunity & challenge windows</li>
+                    </ul>
+                    <a href="#get-report" class="btn btn-secondary">Secure Your Report</a>
+                </div>
+                
+                <div class="cta-option featured">
+                    <div class="option-best-value">MAXIMUM VALUE</div>
+                    <div class="option-header">
+                        <h3>FULL COSMIC SYSTEM</h3>
+                        <div class="option-price">
+                            <span class="price-label">Only</span>
+                            <span class="price-amount">$777</span>
+                            <span class="price-save">Save $2,000+</span>
+                        </div>
+                    </div>
+                    <ul class="option-features">
+                        <li><strong>12 FULL MONTHLY REPORTS</strong></li>
+                        <li><strong>1:1 PSYCHIC READING</strong> ($250 value)</li>
+                        <li><strong>PRIORITY PROCESSING QUEUE</strong></li>
+                        <li><strong>FULL-YEAR MASTER TIMELINE</strong></li>
+                        <li><strong>ADVANCED AI EVOLUTION</strong></li>
+                    </ul>
+                    <a href="#get-report" class="btn btn-primary pulse-animation">Claim Your Full System</a>
+                </div>
+            </div>
+            
+            <div class="payment-options">
+                <p>PAY OVER TIME: As low as $25/mo with Klarna or Affirm</p>
+                <div class="payment-logos">
+                    <div class="payment-logo">
+                        <img src="https://cdn.shopify.com/shopifycloud/shopify/assets/checkout/shop-pay-logo-6c2f3c4e52.svg" alt="Shop Pay" class="payment-icon">
+                    </div>
+                    <div class="payment-logo">
+                        <img src="https://cdn.affirm.com/images/black_logo-transparent_bg.svg" alt="Affirm" class="payment-icon">
+                    </div>
+                    <div class="payment-logo">
+                        <img src="https://x.klarnacdn.net/payment-method/assets/badges/generic/klarna.svg" alt="Klarna" class="payment-icon">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="guarantee-box">
+                <div class="guarantee-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="guarantee-text">
+                    <h3>100% SATISFACTION GUARANTEE</h3>
+                    <p>If your report doesn't accurately predict at least 3 major events or emotional states within 30 days, we'll refund every penny.</p>
+                </div>
+            </div>
+            
+            <div class="final-urgency">
+                <p>Your future is already in motion. Will you navigate it blindly, or with cosmic precision?</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="checkout-form section-fade" id="get-report">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="tag">Start Your Cosmic Journey</span>
+                <h2>Get Your Personalized Astrology AI Report</h2>
+                <p class="subtitle">Enter your details below for precise cosmic guidance</p>
+            </div>
+            
+            <div class="form-container">
+                <div class="form-progress">
+                    <div class="progress-step active">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Your Details</div>
+                    </div>
+                    <div class="progress-bar"></div>
+                    <div class="progress-step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Checkout</div>
+                    </div>
+                    <div class="progress-bar"></div>
+                    <div class="progress-step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Get Report</div>
+                    </div>
+                </div>
+                
+                <form id="birthDataForm">
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="As shown on your birth certificate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Where we'll send your report" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob"><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+                            <input type="date" id="dob" name="dob" required>
+                            <small class="form-tip">Exact birth date ensures accuracy</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="time"><i class="fas fa-clock"></i> Time of Birth</label>
+                            <input type="time" id="time" name="time" required>
+                            <small class="form-tip">Approximate if unknown</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="place"><i class="fas fa-map-marker-alt"></i> Place of Birth (City, Country)</label>
+                        <input type="text" id="place" name="place" placeholder="e.g., Los Angeles, USA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportMonth"><i class="fas fa-calendar-check"></i> Choose Month for Your Report</label>
+                        <select id="reportMonth" name="reportMonth" required>
+                            <option value="">Select a month</option>
+                            <!-- JavaScript will populate this with the next 12 months -->
+                        </select>
+                    </div>
+                    
+                    <h3 id="Select-Your-Package" class="text-center">Select Your Package:</h3>
+                    
+                    <div class="package-selection-container">
+                        <div class="package-option-card">
+                            <div class="option-header">
+                                <h3>One-Time Report</h3>
+                                <p>Single month cosmic guidance</p>
+                            </div>
+                            <div class="price-container">
+                                <span class="currency">$</span>
+                                <div class="price">97</div>
+                                <span class="period">one-time</span>
+                            </div>
+                            <input type="radio" id="oneTime" name="package" value="oneTime" checked style="position: absolute; opacity: 0; top: 0; left: 0;">
+                        </div>
+                        
+                        <div class="package-option-card featured">
+                            <div class="ribbon">BEST VALUE</div>
+                            <div class="option-header">
+                                <h3>Full-Year Bundle + 1:1 Reading</h3>
+                                <p>12 months + Psychic session with Allison</p>
+                            </div>
+                            <div class="price-container">
+                                <span class="currency">$</span>
+                                <div class="price">777</div>
+                                <span class="period">full year</span>
+                            </div>
+                            <div class="savings">Save Over $800</div>
+                            <input type="radio" id="bundle" name="package" value="bundle" style="position: absolute; opacity: 0; top: 0; left: 0;">
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-panel">
+                        <div id="orderSummary" class="order-summary">
+                            <h4>Order Summary</h4>
+                            <div class="summary-item">
+                                <span class="item-name">One-Time Report</span>
+                                <span class="item-price">$97</span>
+                            </div>
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span class="total-price">$97</span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary pulse-animation">
+                            <i class="fas fa-lock"></i> Secure Checkout
+                        </button>
+                    </div>
+                    
+                    <div class="trust-badges">
+                        <div class="badge">
+                            <i class="fas fa-lock"></i>
+                            <span>Secure SSL Encryption</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Privacy Protected</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-undo"></i>
+                            <span>30-Day Guarantee</span>
+                        </div>
+                    </div>
+                    
+                    <p class="privacy-note">Your data is private and secure. We never share or train on your information.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-details section-fade" id="how-it-works">
+        <div class="nebula-effect"></div>
+        <div class="container">
+            <h2>WHY THIS REPORT COSTS $2M TO BUILD (BUT ONLY $97 FOR YOU)</h2>
+            
+            <div class="tech-feature-grid">
+                <div class="tech-feature">
+                    <div class="tech-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>14 LEGENDARY TEXTS</h3>
+                    <p>From Ptolemy's <em>Tetrabiblos</em> to modern masters, we've encoded $10,000+ worth of rare astrological wisdom into one system.</p>
+                </div>
+                
+                <div class="tech-feature">
+                    <div class="tech-icon"><i class="fas fa-server"></i></div>
+                    <h3>ELITE SERVER POWER</h3>
+                    <p>Each report costs us $50 in raw computing power. Dedicated machines process your cosmic data for 60+ minutes.</p>
+                </div>
+                
+                <div class="tech-feature">
+                    <div class="tech-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>1.5M+ CALCULATIONS</h3>
+                    <p>Your natal chart, transits, Dashas, and 16 divisional charts processed with Swiss Ephemeris precision.</p>
+                </div>
+                
+                <div class="tech-feature">
+                    <div class="tech-icon"><i class="fas fa-globe"></i></div>
+                    <h3>ASTROCARTOGRAPHY</h3>
+                    <p>Find your power locations globally with precision mapping to within 1/10 of a degree.</p>
+                </div>
+                
+                <div class="tech-feature">
+                    <div class="tech-icon"><i class="fas fa-user-astronaut"></i></div>
+                    <h3>20+ SPECIALISTS</h3>
+                    <p>Engineers, data scientists and PhD astrologers spent 2 years perfecting every algorithm.</p>
+                </div>
+                
+                <div class="tech-feature">
+                    <div class="tech-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI EVOLUTION</h3>
+                    <p>Your personal SoulSync Avatar evolves with each report, learning your unique patterns.</p>
+                </div>
+            </div>
+            
+            <div class="tech-value-prop">
+                <div class="value-item">
+                    <div class="value-number">$2M+</div>
+                    <div class="value-label">Development Cost</div>
+                </div>
+                <div class="value-divider">VS</div>
+                <div class="value-item highlight">
+                    <div class="value-number">$97</div>
+                    <div class="value-label">Your Price</div>
+                </div>
+            </div>
+            
+            <div class="tech-cta">
+                <a href="#get-report" class="btn btn-primary pulse-animation">Get Your Report Now</a>
+                <p class="tech-guarantee">100% Accuracy Guarantee or Your Money Back</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://storage.googleapis.com/msgsndr/Kp1u1FaSlXAhxEBJpCTL/media/66aab355a2923188d3763c34.png" alt="Soulful Evolution Logo">
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Soulful Evolution™. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
