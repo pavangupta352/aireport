@@ -304,6 +304,20 @@ nav ul li a:hover {
     box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
 }
 
+.cosmic-brain-gif {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+    transition: all 0.5s ease;
+    transform: translateZ(0); /* Helps with performance on some browsers */
+}
+
+.cosmic-brain-gif:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
+}
+
 /* Trust Indicators */
 .trust-indicators {
     backdrop-filter: blur(10px);
@@ -3970,5 +3984,41 @@ section:not(:first-child) {
     .cosmic-gif {
         max-width: 95%;
         margin: 20px auto 0;
+    }
+}
+
+.what-you-get .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-gif {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+    transition: all 0.5s ease;
+    transform: translateZ(0);
+}
+
+.avatar-gif:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
+}
+
+.avatar-integration .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .avatar-integration .container {
+        flex-direction: column-reverse;
+    }
+    
+    .avatar-gif {
+        margin-top: 30px;
     }
 }
