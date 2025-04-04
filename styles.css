@@ -4511,3 +4511,25 @@ section:not(:first-child) {
     max-width: 700px;
     margin: 0 auto 1.5rem;
 }
+
+.payment-methods-img {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    background-color: rgba(30, 10, 60, 0.6);
+    border-radius: 15px;
+    padding: 10px 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.payment-methods-img:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+}
+
+@media (max-width: 768px) {
+    .payment-methods-img {
+        max-width: 250px;
+        padding: 8px 20px;
+    }
+}
