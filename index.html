@@ -276,20 +276,20 @@
     <section class="avatar-integration section-fade">
         <div class="nebula-effect"></div>
         <div class="container">
-            <div class="image-container">
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTllMzNwZXpuN3RhbXhscmphYjNud3hwMGpzZHpxa2dtZG11MWw3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SP3PM4hfVbyPhKfnf1/giphy.gif" alt="AI Avatar Evolution" class="avatar-gif">
-            </div>
             <div class="section-content">
                 <h2>AI Avatar Integration</h2>
                 <p>Every time you purchase a report — whether one-time or bundled — you're training your custom energetic AI Avatar to support your evolution.</p>
                 
                 <ul class="avatar-features">
-                    <li><span class="icon"><i class="fas fa-magic"></i></span> Tracks your emotional shifts</li>
+                    <li><span class="icon"><i class="fas fa-chart-line"></i></span> Tracks your emotional shifts</li>
                     <li><span class="icon"><i class="fas fa-robot"></i></span> Learns your energetic patterns</li>
                     <li><span class="icon"><i class="fas fa-brain"></i></span> Helps guide decisions with divine timing</li>
                     <li><span class="icon"><i class="fas fa-mobile-alt"></i></span> Evolves month-to-month with each new report</li>
                 </ul>
                 <p class="highlight-text">The more you feed it, the more powerful it becomes.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdTllMzNwZXpuN3RhbXhscmphYjNud3hwMGpzZHpxa2dtZG11MWw3byZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SP3PM4hfVbyPhKfnf1/giphy.gif" alt="AI Avatar Evolution" class="avatar-gif">
             </div>
         </div>
     </section>
@@ -541,20 +541,20 @@
             <h2>Easy Apply Financing — 90% Approval Rate</h2>
             <div class="financing-options">
                 <div class="option">
-                    <div class="icon">
-                        <img src="https://via.placeholder.com/60x60" alt="Payment Options">
+                    <div class="financing-icon">
+                        <i class="fas fa-credit-card"></i>
                     </div>
                     <h4>Klarna, Affirm, Shop Pay accepted</h4>
                 </div>
                 <div class="option">
-                    <div class="icon">
-                        <img src="https://via.placeholder.com/60x60" alt="Application">
+                    <div class="financing-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <h4>3-Minute Soft Application</h4>
                 </div>
                 <div class="option">
-                    <div class="icon">
-                        <img src="https://via.placeholder.com/60x60" alt="Bundle">
+                    <div class="financing-icon">
+                        <i class="fas fa-star"></i>
                     </div>
                     <h4>Available on the $777 Bundle</h4>
                 </div>
@@ -703,7 +703,7 @@
                     <h3 id="Select-Your-Package" class="text-center">Select Your Package:</h3>
                     
                     <div class="package-selection-container">
-                        <div class="package-option-card">
+                        <div class="package-option-card" id="oneTimeCard">
                             <div class="option-header">
                                 <h3>One-Time Report</h3>
                                 <p>Single month cosmic guidance</p>
@@ -712,11 +712,18 @@
                                 <span class="currency">$</span>
                                 <div class="price">97</div>
                                 <span class="period">one-time</span>
-                                </div>
-                            <input type="radio" id="oneTime" name="package" value="oneTime" checked style="position: absolute; opacity: 0; top: 0; left: 0;">
+                            </div>
+                            <div class="card-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Complete natal analysis</li>
+                                    <li><i class="fas fa-check"></i> 30-day transit timeline</li>
+                                    <li><i class="fas fa-check"></i> Personal power locations</li>
+                                </ul>
+                            </div>
+                            <input type="radio" id="oneTime" name="package" value="oneTime" checked>
                         </div>
                         
-                        <div class="package-option-card featured">
+                        <div class="package-option-card featured" id="bundleCard">
                             <div class="ribbon">BEST VALUE</div>
                             <div class="option-header">
                                 <h3>Full-Year Bundle + 1:1 Reading</h3>
@@ -726,9 +733,16 @@
                                 <span class="currency">$</span>
                                 <div class="price">777</div>
                                 <span class="period">full year</span>
-                                </div>
-                                <div class="savings">Save Over $800</div>
-                            <input type="radio" id="bundle" name="package" value="bundle" style="position: absolute; opacity: 0; top: 0; left: 0;">
+                            </div>
+                            <div class="savings">Save Over $800</div>
+                            <div class="card-features">
+                                <ul>
+                                    <li><i class="fas fa-star"></i> 12 monthly reports included</li>
+                                    <li><i class="fas fa-star"></i> 1:1 reading with Allison ($250 value)</li>
+                                    <li><i class="fas fa-star"></i> 365-day master timeline</li>
+                                </ul>
+                            </div>
+                            <input type="radio" id="bundle" name="package" value="bundle">
                         </div>
                     </div>
                     

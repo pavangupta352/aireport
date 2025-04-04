@@ -835,62 +835,199 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Package Selection Logic - Clean up existing implementation
+// Handle Package Selection
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize package cards
-    const packageCards = document.querySelectorAll('.package-option-card');
-    const packageRadios = document.querySelectorAll('input[name="package"]');
-
-    // Initialize with first card selected
-    if (packageCards.length > 0) {
-        packageCards[0].classList.add('selected');
-        if (packageRadios[0]) {
-            packageRadios[0].checked = true;
+    const oneTimeCard = document.getElementById('oneTimeCard');
+    const bundleCard = document.getElementById('bundleCard');
+    const oneTimeRadio = document.getElementById('oneTime');
+    const bundleRadio = document.getElementById('bundle');
+    
+    // Select the first package card by default
+    oneTimeCard.classList.add('selected');
+    oneTimeRadio.checked = true;
+    
+    // Update order summary based on initial selection
+    updateOrderSummary('one-time');
+    
+    // Add click event listeners to package cards
+    oneTimeCard.addEventListener('click', function() {
+        // Remove selected class from all cards
+        oneTimeCard.classList.add('selected');
+        bundleCard.classList.remove('selected');
+        
+        // Check the associated radio input
+        oneTimeRadio.checked = true;
+        
+        // Update order summary
+        updateOrderSummary('one-time');
+    });
+    
+    bundleCard.addEventListener('click', function() {
+        // Remove selected class from all cards
+        bundleCard.classList.add('selected');
+        oneTimeCard.classList.remove('selected');
+        
+        // Check the associated radio input
+        bundleRadio.checked = true;
+        
+        // Update order summary
+        updateOrderSummary('bundle');
+    });
+    
+    // Function to update order summary
+    function updateOrderSummary(packageType) {
+        const summaryElement = document.getElementById('orderSummary');
+        let summaryHTML = '<h4>Order Summary</h4>';
+        
+        if (packageType === 'one-time') {
+            summaryHTML += `
+                <div class="summary-item">
+                    <span class="item-name">One-Time Report</span>
+                    <span class="item-price">$97</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span class="total-price">$97</span>
+                </div>
+            `;
+        } else {
+            summaryHTML += `
+                <div class="summary-item">
+                    <span class="item-name">Full-Year Bundle + 1:1 Reading</span>
+                    <span class="item-price">$777</span>
+                </div>
+                <div class="summary-item">
+                    <span class="item-name">Your Savings</span>
+                    <span class="item-price savings-price">-$800+</span>
+                </div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span class="total-price">$777</span>
+                </div>
+            `;
         }
         
-        // Initial order summary update
-        updateOrderSummary(packageRadios[0].value);
+        summaryElement.innerHTML = summaryHTML;
     }
+    
+    // Populate months dropdown
+    const monthSelect = document.getElementById('reportMonth');
+    if (monthSelect) {
+        const months = [
+            'January', 'February', 'March', 'April',
+            'May', 'June', 'July', 'August',
+            'September', 'October', 'November', 'December'
+        ];
+        
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        
+        for (let i = 0; i < 12; i++) {
+            const monthIndex = (currentMonth + i) % 12;
+            const option = document.createElement('option');
+            option.value = monthIndex;
+            option.textContent = months[monthIndex] + ' ' + (i === 0 ? '(Current Month)' : '');
+            monthSelect.appendChild(option);
+        }
+    }
+});
 
-    // Add click event to each package card
-    packageCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // Remove selected class from all cards
-            packageCards.forEach(c => c.classList.remove('selected'));
-            
-            // Add selected class to clicked card
-            this.classList.add('selected');
-            
-            // Find the radio input inside this card and check it
-            const radio = this.querySelector('input[type="radio"]');
-            if (radio) {
-                radio.checked = true;
-                
-                // Update order summary based on selection
-                updateOrderSummary(radio.value);
+// Star animation
+function createStars() {
+    const starsContainer = document.getElementById('starsContainer');
+    if (!starsContainer) return;
+    
+    const starCount = window.innerWidth < 768 ? 50 : 100;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        // Random position
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        
+        // Random size (0.5px to 2.5px)
+        const size = 0.5 + Math.random() * 2;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        
+        // Random animation delay
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        
+        starsContainer.appendChild(star);
+    }
+}
+
+// Create constellation effect
+function createConstellation() {
+    const constellationEl = document.getElementById('constellation');
+    if (!constellationEl) return;
+    
+    const points = [];
+    const lineCount = window.innerWidth < 768 ? 5 : 10;
+    
+    // Create points
+    for (let i = 0; i < lineCount + 1; i++) {
+        points.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight * 0.7,
+        });
+    }
+    
+    // Create lines between points
+    for (let i = 0; i < lineCount; i++) {
+        const line = document.createElement('div');
+        line.classList.add('line');
+        
+        const x1 = points[i].x;
+        const y1 = points[i].y;
+        const x2 = points[i + 1].x;
+        const y2 = points[i + 1].y;
+        
+        const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+        
+        line.style.width = `${length}px`;
+        line.style.left = `${x1}px`;
+        line.style.top = `${y1}px`;
+        line.style.transform = `rotate(${angle}deg)`;
+        
+        constellationEl.appendChild(line);
+    }
+}
+
+// Initialize on page load
+window.addEventListener('load', function() {
+    createStars();
+    createConstellation();
+    
+    // Animate elements on scroll
+    const elementsToAnimate = document.querySelectorAll('.feature-card, .cosmic-card, .pricing-card, .testimonial-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
             }
         });
+    }, {
+        threshold: 0.1
+    });
+    
+    elementsToAnimate.forEach(el => {
+        observer.observe(el);
     });
 });
 
-// Function to update order summary based on package selection
-function updateOrderSummary(packageType) {
-    const orderSummary = document.getElementById('orderSummary');
-    const totalPriceEl = document.querySelector('.total-price');
-    
-    if (orderSummary && totalPriceEl) {
-        const summaryItem = orderSummary.querySelector('.summary-item');
-        
-        if (packageType === 'bundle') {
-            if (summaryItem) {
-                summaryItem.innerHTML = '<span class="item-name">Full-Year Bundle + 1:1 Reading</span><span class="item-price">$777</span>';
-                totalPriceEl.textContent = '$777';
-            }
-        } else {
-            if (summaryItem) {
-                summaryItem.innerHTML = '<span class="item-name">One-Time Report</span><span class="item-price">$97</span>';
-                totalPriceEl.textContent = '$97';
-            }
-        }
+// Handle header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
     }
-} 
+}); 
