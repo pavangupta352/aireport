@@ -112,8 +112,9 @@ section::after {
 }
 
 .highlight {
-    color: var(--accent-color);
+    color: #ff65f9;
     font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 101, 249, 0.7);
 }
 
 .btn {
@@ -270,7 +271,11 @@ nav ul li a:hover {
 
 .hero-image {
     position: relative;
-    z-index: 1;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
 }
 
 .hero-image:after {
@@ -284,6 +289,19 @@ nav ul li a:hover {
     z-index: -1;
     border-radius: 50%;
     filter: blur(30px);
+}
+
+.cosmic-gif {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+    transition: all 0.5s ease;
+    transform: translateZ(0); /* Helps with performance on some browsers */
+}
+
+.cosmic-gif:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.6);
 }
 
 /* Trust Indicators */
@@ -355,7 +373,10 @@ nav ul li a:hover {
 }
 
 .calculations .highlight {
-    font-size: 1.8rem;
+    font-size: 28px;
+    font-weight: 800;
+    color: #ff65f9;
+    text-shadow: 0 0 10px rgba(255, 101, 249, 0.7);
 }
 
 /* Monthly Shift Section */
@@ -1623,16 +1644,21 @@ footer {
     left: -20px;
 }
 
-.floating-badge .number, 
-.floating-badge .stars {
-    font-size: 1.1rem;
-    font-weight: 700;
+.floating-badge .number {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ff65f9;
+    text-shadow: 0 0 10px rgba(255, 101, 249, 0.7);
     margin-bottom: 4px;
     display: block;
 }
 
 .floating-badge .stars {
-    color: #FFD700;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: block;
+    color: #ff65f9;
 }
 
 .floating-badge .text {
@@ -3919,5 +3945,30 @@ section:not(:first-child) {
     .payment-logo {
         padding: 6px 12px;
         margin: 0 4px;
+    }
+}
+
+/* Responsive adjustments for the hero section */
+@media (max-width: 1024px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content, .hero-image {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .cosmic-gif {
+        max-width: 90%;
+        margin: 30px auto 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .cosmic-gif {
+        max-width: 95%;
+        margin: 20px auto 0;
     }
 }
