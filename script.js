@@ -835,6 +835,72 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Fix for mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger-menu');
+    const body = document.body;
+    
+    if (hamburger) {
+        hamburger.addEventListener('click', function() {
+            body.classList.toggle('mobile-menu-active');
+            
+            // Prevent scrolling when menu is open
+            if (body.classList.contains('mobile-menu-active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close mobile menu when clicking on links
+        const mobileLinks = document.querySelectorAll('.mobile-menu-overlay a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                body.classList.remove('mobile-menu-active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            // Only if menu is active
+            if (!body.classList.contains('mobile-menu-active')) return;
+            
+            // Check if click is outside menu and not on hamburger
+            if (!event.target.closest('.mobile-menu-overlay') && 
+                !event.target.closest('.hamburger-menu')) {
+                body.classList.remove('mobile-menu-active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+});
+
+// Fix potential layout issues on mobile
+function fixMobileLayout() {
+    const windowWidth = window.innerWidth;
+    
+    // Apply fixes for specific screen widths
+    if (windowWidth <= 768) {
+        // Ensure cosmic cards have proper height
+        const cosmicCards = document.querySelectorAll('.cosmic-card');
+        cosmicCards.forEach(card => {
+            card.style.height = 'auto';
+        });
+        
+        // Fix any potentially overflowing elements
+        const containers = document.querySelectorAll('.container');
+        containers.forEach(container => {
+            container.style.maxWidth = '100%';
+            container.style.overflow = 'hidden';
+        });
+    }
+}
+
+// Run on page load and resize
+window.addEventListener('load', fixMobileLayout);
+window.addEventListener('resize', fixMobileLayout);
+
 // Handle Package Selection
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize package cards
@@ -843,41 +909,51 @@ document.addEventListener('DOMContentLoaded', function() {
     const oneTimeRadio = document.getElementById('oneTime');
     const bundleRadio = document.getElementById('bundle');
     
-    // Select the first package card by default
-    oneTimeCard.classList.add('selected');
-    oneTimeRadio.checked = true;
-    
-    // Update order summary based on initial selection
-    updateOrderSummary('one-time');
-    
-    // Add click event listeners to package cards
-    oneTimeCard.addEventListener('click', function() {
-        // Remove selected class from all cards
+    if (oneTimeCard && bundleCard) {
+        // Select the first package card by default
         oneTimeCard.classList.add('selected');
-        bundleCard.classList.remove('selected');
+        if (oneTimeRadio) oneTimeRadio.checked = true;
         
-        // Check the associated radio input
-        oneTimeRadio.checked = true;
+        // Update order summary based on initial selection
+        if (typeof updateOrderSummary === 'function') {
+            updateOrderSummary('one-time');
+        }
         
-        // Update order summary
-        updateOrderSummary('one-time');
-    });
-    
-    bundleCard.addEventListener('click', function() {
-        // Remove selected class from all cards
-        bundleCard.classList.add('selected');
-        oneTimeCard.classList.remove('selected');
+        // Add click event listeners to package cards
+        oneTimeCard.addEventListener('click', function() {
+            // Remove selected class from all cards
+            oneTimeCard.classList.add('selected');
+            bundleCard.classList.remove('selected');
+            
+            // Check the associated radio input
+            if (oneTimeRadio) oneTimeRadio.checked = true;
+            
+            // Update order summary
+            if (typeof updateOrderSummary === 'function') {
+                updateOrderSummary('one-time');
+            }
+        });
         
-        // Check the associated radio input
-        bundleRadio.checked = true;
-        
-        // Update order summary
-        updateOrderSummary('bundle');
-    });
+        bundleCard.addEventListener('click', function() {
+            // Remove selected class from all cards
+            bundleCard.classList.add('selected');
+            oneTimeCard.classList.remove('selected');
+            
+            // Check the associated radio input
+            if (bundleRadio) bundleRadio.checked = true;
+            
+            // Update order summary
+            if (typeof updateOrderSummary === 'function') {
+                updateOrderSummary('bundle');
+            }
+        });
+    }
     
     // Function to update order summary
     function updateOrderSummary(packageType) {
         const summaryElement = document.getElementById('orderSummary');
+        if (!summaryElement) return;
+        
         let summaryHTML = '<h4>Order Summary</h4>';
         
         if (packageType === 'one-time') {
@@ -1030,4 +1106,215 @@ window.addEventListener('scroll', function() {
     } else {
         header.classList.remove('scrolled');
     }
+});
+
+// Optimize for mobile devices
+function optimizeForMobile() {
+    // Check if this is a mobile device
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Reduce star count for better performance
+        createLighterStars();
+        
+        // Simplify constellation or remove it
+        const constellationEl = document.getElementById('constellation');
+        if (constellationEl) {
+            constellationEl.innerHTML = '';
+            createSimpleConstellation();
+        }
+        
+        // Reduce animation effects
+        document.querySelectorAll('.cosmic-glow').forEach(glow => {
+            glow.style.animation = 'none';
+        });
+    }
+}
+
+// Create a lighter version of stars for mobile
+function createLighterStars() {
+    const starsContainer = document.getElementById('starsContainer');
+    if (!starsContainer) return;
+    
+    // Clear existing stars
+    starsContainer.innerHTML = '';
+    
+    // Create fewer stars
+    const starCount = 30;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        
+        // Random position
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        
+        // Random size (0.5px to 2px)
+        const size = 0.5 + Math.random() * 1.5;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        
+        // Simpler animation
+        star.style.animationDuration = '3s';
+        
+        starsContainer.appendChild(star);
+    }
+}
+
+// Create a simpler constellation for mobile
+function createSimpleConstellation() {
+    const constellationEl = document.getElementById('constellation');
+    if (!constellationEl) return;
+    
+    const lineCount = 3;
+    const points = [];
+    
+    // Create fewer points
+    for (let i = 0; i < lineCount + 1; i++) {
+        points.push({
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight * 0.5,
+        });
+    }
+    
+    // Create lines
+    for (let i = 0; i < lineCount; i++) {
+        const line = document.createElement('div');
+        line.classList.add('line');
+        
+        const x1 = points[i].x;
+        const y1 = points[i].y;
+        const x2 = points[i + 1].x;
+        const y2 = points[i + 1].y;
+        
+        const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+        
+        line.style.width = `${length}px`;
+        line.style.left = `${x1}px`;
+        line.style.top = `${y1}px`;
+        line.style.transform = `rotate(${angle}deg)`;
+        
+        constellationEl.appendChild(line);
+    }
+}
+
+// Run on load and on resize
+window.addEventListener('load', optimizeForMobile);
+window.addEventListener('resize', optimizeForMobile);
+
+// Fix header and hero layout issues on mobile
+function fixHeaderAndHeroOnMobile() {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Fix header layout
+        const header = document.querySelector('header');
+        if (header) {
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            header.style.left = '0';
+            header.style.width = '100%';
+            header.style.zIndex = '1000';
+        }
+        
+        // Ensure container is properly aligned
+        const headerContainer = document.querySelector('header .container');
+        if (headerContainer) {
+            headerContainer.style.display = 'flex';
+            headerContainer.style.flexDirection = 'row';
+            headerContainer.style.justifyContent = 'space-between';
+            headerContainer.style.alignItems = 'center';
+        }
+        
+        // Fix hero section spacing
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.paddingTop = '90px';
+            hero.style.overflow = 'hidden';
+        }
+        
+        // Adjust hero content and image
+        const heroContent = document.querySelector('.hero-content');
+        const heroImage = document.querySelector('.hero-image');
+        
+        if (heroContent) {
+            heroContent.style.width = '100%';
+            heroContent.style.textAlign = 'center';
+            heroContent.style.padding = '0 15px';
+            heroContent.style.marginBottom = '30px';
+        }
+        
+        if (heroImage) {
+            heroImage.style.width = '100%';
+            heroImage.style.maxWidth = '280px';
+            heroImage.style.margin = '0 auto';
+        }
+        
+        // Ensure badges are properly positioned
+        const floatingBadges = document.querySelectorAll('.floating-badge');
+        floatingBadges.forEach(badge => {
+            badge.style.position = 'absolute';
+            
+            if (badge.classList.contains('top')) {
+                badge.style.top = '-10px';
+                badge.style.right = '-10px';
+            } else if (badge.classList.contains('bottom')) {
+                badge.style.bottom = '-10px';
+                badge.style.left = '-10px';
+            }
+        });
+        
+        // Fix emoji line layout
+        const emojiLine = document.querySelector('.emoji-line');
+        if (emojiLine) {
+            emojiLine.style.display = 'flex';
+            emojiLine.style.justifyContent = 'center';
+            emojiLine.style.gap = '10px';
+        }
+        
+        // Fix hero badges layout
+        const heroBadges = document.querySelector('.hero-badges');
+        if (heroBadges) {
+            heroBadges.style.display = 'flex';
+            heroBadges.style.flexDirection = 'column';
+            heroBadges.style.alignItems = 'center';
+            heroBadges.style.gap = '10px';
+            
+            // Fix individual badge items
+            const badges = heroBadges.querySelectorAll('p');
+            badges.forEach(badge => {
+                badge.style.display = 'flex';
+                badge.style.alignItems = 'center';
+                badge.style.justifyContent = 'center';
+                badge.style.textAlign = 'center';
+                badge.style.gap = '8px';
+                badge.style.width = '100%';
+            });
+        }
+        
+        // Fix CTA button
+        const heroCta = document.querySelector('.hero-cta');
+        if (heroCta) {
+            const button = heroCta.querySelector('.btn');
+            if (button) {
+                button.style.width = '100%';
+                button.style.maxWidth = '280px';
+            }
+        }
+    }
+}
+
+// Run layout fixes on page load and resize
+window.addEventListener('load', function() {
+    fixHeaderAndHeroOnMobile();
+    fixMobileLayout();
+    optimizeForMobile();
+});
+
+window.addEventListener('resize', function() {
+    fixHeaderAndHeroOnMobile();
+    fixMobileLayout();
+    optimizeForMobile();
 }); 
