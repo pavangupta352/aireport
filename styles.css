@@ -6150,3 +6150,256 @@ section:not(:first-child) {
         display: none !important;
     }
 }
+
+/* Fix icon alignment on mobile */
+@media only screen and (max-width: 768px) {
+    /* Ensure better icon alignment in feature lists */
+    .avatar-features li, 
+    .benefits-list li,
+    .price-features li,
+    .card-features li {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+    
+    .icon-badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Fix padding for hero section to prevent navbar overlap */
+    .hero {
+        padding-top: 100px !important;
+    }
+    
+    /* Fix hero badges alignment */
+    .hero-badges p {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 10px !important;
+    }
+    
+    /* Make sure all icons are properly aligned */
+    .cosmic-card-icon,
+    .feature-card .icon,
+    .tech-icon,
+    .avatar-features .icon,
+    .benefits-list .icon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* Fix feature text alignment */
+    .avatar-features li span,
+    .benefits-list li span,
+    .price-features li span,
+    .card-features li span {
+        display: inline-block !important;
+        vertical-align: middle !important;
+    }
+}
+
+/* Specific fix for avatar features icons shown in screenshot */
+@media only screen and (max-width: 768px) {
+    .avatar-features {
+        margin-top: 20px !important;
+    }
+    
+    .avatar-features li {
+        display: flex !important;
+        align-items: center !important;
+        margin-bottom: 20px !important;
+        gap: 15px !important;
+        padding-left: 0 !important;
+    }
+    
+    .avatar-features .icon {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        border-radius: 50% !important;
+        background: rgba(138, 43, 226, 0.15) !important;
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.3) !important;
+        margin-right: 0 !important;
+    }
+    
+    .avatar-features .icon i {
+        font-size: 20px !important;
+        color: #fff !important;
+    }
+    
+    .avatar-features li span:not(.icon) {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+    }
+}
+
+/* Ultra-specific fix for the avatar features icons alignment */
+@media only screen and (max-width: 768px) {
+    /* Target specifically these text items */
+    .avatar-features li {
+        display: flex !important;
+        align-items: center !important; /* Change from flex-start to center */
+        margin-bottom: 25px !important;
+        gap: 15px !important;
+        padding-left: 0 !important;
+        text-align: left !important;
+    }
+    
+    /* Force proper icon sizing */
+    .avatar-features .icon {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        max-width: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        border-radius: 50% !important;
+        background: rgba(138, 43, 226, 0.2) !important;
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.3) !important;
+        margin: 0 !important;
+        position: relative !important;
+        top: 0 !important; /* Reset vertical offset */
+    }
+    
+    /* Make sure icons are centered in circles */
+    .avatar-features .icon i {
+        font-size: 20px !important;
+        color: #fff !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    /* Reset any text justification */
+    .avatar-features li span:not(.icon) {
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        display: block !important;
+        text-align: left !important;
+        padding-top: 0 !important; /* Remove extra padding */
+    }
+    
+    /* Ensure section is properly aligned */
+    .avatar-integration .section-content {
+        text-align: left !important;
+        padding: 0 15px !important;
+    }
+
+    /* Fix hero badges alignment in mobile view */
+    .hero-badges p {
+        display: flex !important;
+        align-items: center !important;
+        margin-bottom: 15px !important;
+        text-align: left !important;
+    }
+
+    .icon-badge {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+        margin-right: 12px !important;
+        border-radius: 50% !important;
+        background: rgba(138, 43, 226, 0.2) !important;
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.3) !important;
+    }
+
+    .icon-badge i {
+        font-size: 16px !important;
+        color: #fff !important;
+    }
+}
+
+/* Fix header positioning for mobile to prevent overlap with hero section */
+@media only screen and (max-width: 768px) {
+    header {
+        position: fixed !important;
+        width: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 1000 !important;
+        padding: 10px 0 !important;
+        background: rgba(20, 10, 40, 0.95) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+        backdrop-filter: blur(10px) !important;
+    }
+
+    /* Add padding to hero section to prevent overlap with fixed navbar */
+    .hero {
+        padding-top: 80px !important; /* Increase this value to match your navbar height */
+    }
+
+    .hero .container {
+        padding-top: 20px !important;
+    }
+}
+
+/* Final fix for avatar features alignment on mobile */
+@media only screen and (max-width: 768px) {
+    .avatar-integration .avatar-features {
+        width: 100% !important;
+        margin-top: 25px !important;
+        padding: 0 !important;
+    }
+    
+    .avatar-integration .avatar-features li {
+        display: flex !important;
+        align-items: center !important;
+        margin-bottom: 20px !important;
+        padding: 0 !important;
+        gap: 12px !important;
+        position: relative !important;
+    }
+    
+    .avatar-integration .avatar-features .icon {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        max-width: 40px !important;
+        border-radius: 50% !important;
+        background: rgba(138, 43, 226, 0.2) !important;
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.3) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        margin: 0 !important;
+        flex-shrink: 0 !important;
+        top: 0 !important;
+    }
+    
+    .avatar-integration .avatar-features .icon i {
+        font-size: 18px !important;
+        color: #fff !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+    
+    .avatar-integration .avatar-features li span:not(.icon) {
+        display: inline-block !important;
+        font-size: 16px !important;
+        line-height: 1.4 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        vertical-align: middle !important;
+        text-align: left !important;
+    }
+}
