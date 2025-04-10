@@ -17,14 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize pricing toggle
     initPricingToggle();
     
-    // Form validation
-    initFormValidation();
-    
     // Initialize AOS (Animate on Scroll) if available
     initAOS();
-    
-    // Update order summary when package selection changes
-    updateOrderSummary();
     
     // Add additional animations and effects
     addExtraAnimations();
@@ -498,172 +492,8 @@ function initPricingToggle() {
     
     if (!oneTimeBtn || !bundleBtn) return;
     
-    // Update checkout text and order summary based on selected package
-    function updateCheckoutText() {
-        const submitBtn = document.querySelector('button[type="submit"]');
-        if (!submitBtn) return;
-        
-        if (bundleBtn.checked) {
-            submitBtn.textContent = 'Secure Full-Year Bundle ($777)';
-            submitBtn.innerHTML = '<i class="fas fa-lock"></i> Secure Full-Year Bundle';
-        } else {
-            submitBtn.textContent = 'Secure One-Time Report ($97)';
-            submitBtn.innerHTML = '<i class="fas fa-lock"></i> Secure One-Time Report';
-        }
-        
-        // Update order summary
-        updateOrderSummary();
-    }
-    
-    oneTimeBtn.addEventListener('change', updateCheckoutText);
-    bundleBtn.addEventListener('change', updateCheckoutText);
-    
     // Initialize with default selection
-    updateCheckoutText();
-}
-
-// Update order summary when package selection changes
-function updateOrderSummary() {
-    const orderSummary = document.getElementById('orderSummary');
-    if (!orderSummary) return;
-    
-    const bundleBtn = document.getElementById('bundle');
-    const oneTimeBtn = document.getElementById('oneTime');
-    
-    if (!bundleBtn || !oneTimeBtn) return;
-    
-    const summaryItem = orderSummary.querySelector('.summary-item');
-    const totalPrice = orderSummary.querySelector('.total-price');
-    
-    if (bundleBtn.checked) {
-        summaryItem.innerHTML = `
-            <span class="item-name">Full-Year Bundle + 1:1 Reading</span>
-            <span class="item-price">$777</span>
-        `;
-        totalPrice.textContent = '$777';
-    } else {
-        summaryItem.innerHTML = `
-            <span class="item-name">One-Time Report</span>
-            <span class="item-price">$97</span>
-        `;
-        totalPrice.textContent = '$97';
-    }
-}
-
-// Form validation with enhanced user feedback
-function initFormValidation() {
-    const form = document.getElementById('birthDataForm');
-    if (!form) return;
-    
-    // Add input validation styles
-    const inputs = form.querySelectorAll('input, select');
-    inputs.forEach(input => {
-        // Show validation state on blur
-        input.addEventListener('blur', function() {
-            if (this.checkValidity()) {
-                this.classList.add('valid');
-                this.classList.remove('invalid');
-            } else if (this.value) {
-                this.classList.add('invalid');
-                this.classList.remove('valid');
-            }
-        });
-        
-        // Reset validation state when user starts typing
-        input.addEventListener('input', function() {
-            this.classList.remove('invalid');
-        });
-    });
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(form);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const dob = formData.get('dob');
-        const time = formData.get('time');
-        const place = formData.get('place');
-        const reportMonth = formData.get('reportMonth');
-        const packageType = formData.get('package');
-        
-        // Basic validation
-        if (!name || !email || !dob || !time || !place || !reportMonth) {
-            showFormError('Please fill out all required fields.');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showFormError('Please enter a valid email address.');
-            return;
-        }
-        
-        // Show loading state
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        submitBtn.disabled = true;
-        
-        // Simulate API call (in a real implementation, this would submit to backend)
-        setTimeout(() => {
-            // Show success message
-            showFormSuccess('Thank you for your purchase! Your report will be prepared and sent to your email within 24 hours.');
-            
-            // Reset form and button
-            form.reset();
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 1500);
-    });
-    
-    // Helper function to show form errors
-    function showFormError(message) {
-        // Remove any existing error messages
-        const existingError = document.querySelector('.form-error');
-        if (existingError) existingError.remove();
-        
-        // Create error message
-        const errorDiv = document.createElement('div');
-        errorDiv.classList.add('form-error');
-        errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
-        
-        // Insert at top of form
-        form.insertBefore(errorDiv, form.firstChild);
-        
-        // Scroll to error
-        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    
-    // Helper function to show success message
-    function showFormSuccess(message) {
-        // Create success overlay
-        const successOverlay = document.createElement('div');
-        successOverlay.classList.add('success-overlay');
-        
-        successOverlay.innerHTML = `
-            <div class="success-modal">
-                <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-                <h3>Success!</h3>
-                <p>${message}</p>
-                <button class="btn btn-primary close-modal">Continue</button>
-            </div>
-        `;
-        
-        // Add to body
-        document.body.appendChild(successOverlay);
-        
-        // Add close handler
-        const closeBtn = successOverlay.querySelector('.close-modal');
-        closeBtn.addEventListener('click', () => {
-            successOverlay.remove();
-        });
-    }
+    // updateOrderSummary();
 }
 
 // Initialize AOS (Animate on Scroll) if available
@@ -915,9 +745,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (oneTimeRadio) oneTimeRadio.checked = true;
         
         // Update order summary based on initial selection
-        if (typeof updateOrderSummary === 'function') {
-            updateOrderSummary('one-time');
-        }
+        // updateOrderSummary();
         
         // Add click event listeners to package cards
         oneTimeCard.addEventListener('click', function() {
@@ -929,9 +757,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (oneTimeRadio) oneTimeRadio.checked = true;
             
             // Update order summary
-            if (typeof updateOrderSummary === 'function') {
-                updateOrderSummary('one-time');
-            }
+            // updateOrderSummary();
         });
         
         bundleCard.addEventListener('click', function() {
@@ -943,48 +769,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (bundleRadio) bundleRadio.checked = true;
             
             // Update order summary
-            if (typeof updateOrderSummary === 'function') {
-                updateOrderSummary('bundle');
-            }
+            // updateOrderSummary();
         });
-    }
-    
-    // Function to update order summary
-    function updateOrderSummary(packageType) {
-        const summaryElement = document.getElementById('orderSummary');
-        if (!summaryElement) return;
-        
-        let summaryHTML = '<h4>Order Summary</h4>';
-        
-        if (packageType === 'one-time') {
-            summaryHTML += `
-                <div class="summary-item">
-                    <span class="item-name">One-Time Report</span>
-                    <span class="item-price">$97</span>
-                </div>
-                <div class="summary-total">
-                    <span>Total</span>
-                    <span class="total-price">$97</span>
-                </div>
-            `;
-        } else {
-            summaryHTML += `
-                <div class="summary-item">
-                    <span class="item-name">Full-Year Bundle + 1:1 Reading</span>
-                    <span class="item-price">$777</span>
-                </div>
-                <div class="summary-item">
-                    <span class="item-name">Your Savings</span>
-                    <span class="item-price savings-price">-$800+</span>
-                </div>
-                <div class="summary-total">
-                    <span>Total</span>
-                    <span class="total-price">$777</span>
-                </div>
-            `;
-        }
-        
-        summaryElement.innerHTML = summaryHTML;
     }
     
     // Populate months dropdown
@@ -1317,4 +1103,85 @@ window.addEventListener('resize', function() {
     fixHeaderAndHeroOnMobile();
     fixMobileLayout();
     optimizeForMobile();
-}); 
+});
+
+// Setup card click handlers for package selection
+function setupCardClickHandlers() {
+    // One-Time card click
+    const oneTimeCard = document.getElementById('oneTimeCard');
+    if (oneTimeCard) {
+        oneTimeCard.addEventListener('click', function() {
+            const oneTimeRadio = document.getElementById('oneTime');
+            if (oneTimeRadio) {
+                oneTimeRadio.checked = true;
+                
+                // Update card styles
+                this.classList.add('selected');
+                const bundleCard = document.getElementById('bundleCard');
+                if (bundleCard) bundleCard.classList.remove('selected');
+            }
+        });
+    }
+    
+    // Bundle card click
+    const bundleCard = document.getElementById('bundleCard');
+    if (bundleCard) {
+        bundleCard.addEventListener('click', function() {
+            const bundleRadio = document.getElementById('bundle');
+            if (bundleRadio) {
+                bundleRadio.checked = true;
+                
+                // Update card styles
+                this.classList.add('selected');
+                const oneTimeCard = document.getElementById('oneTimeCard');
+                if (oneTimeCard) oneTimeCard.classList.remove('selected');
+            }
+        });
+    }
+}
+
+// Remove any direct calls to updateOrderSummary()
+function initPackageSelector() {
+    const packageCards = document.querySelectorAll('.package-option-card');
+    const oneTimeCard = document.getElementById('oneTimeCard');
+    const bundleCard = document.getElementById('bundleCard');
+    
+    if (packageCards.length && oneTimeCard && bundleCard) {
+        // Mark one-time as selected by default
+        oneTimeCard.classList.add('selected');
+        
+        // No need for this anymore since the summary isn't on the page
+        // updateOrderSummary();
+        
+        // Add click event listeners to package cards
+        oneTimeCard.addEventListener('click', function() {
+            // Clear existing selections
+            packageCards.forEach(card => card.classList.remove('selected'));
+            
+            // Mark this card as selected
+            this.classList.add('selected');
+            
+            // Set radio button
+            const radioBtn = this.querySelector('input[type="radio"]');
+            if (radioBtn) radioBtn.checked = true;
+            
+            // No need for this anymore
+            // updateOrderSummary();
+        });
+        
+        bundleCard.addEventListener('click', function() {
+            // Clear existing selections
+            packageCards.forEach(card => card.classList.remove('selected'));
+            
+            // Mark this card as selected
+            this.classList.add('selected');
+            
+            // Set radio button
+            const radioBtn = this.querySelector('input[type="radio"]');
+            if (radioBtn) radioBtn.checked = true;
+            
+            // No need for this anymore
+            // updateOrderSummary();
+        });
+    }
+} 
